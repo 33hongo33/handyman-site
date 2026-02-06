@@ -101,6 +101,10 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/bnb-shower1.png", caption: "LVP Shower Tiles Installed", alt: "Finished luxury vinyl plank flooring" },
       { src: "/projects/bnb-shower2.png", caption: "Custom Maple and Purple Heart Wood Accents", alt: "Luxury vinyl plank detail and trim" },
       { src: "/projects/bnb-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
+
+      { src: "/projects/beach-shower1.png", caption: "Before: Beach Bathroom", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/beach-shower2.png", caption: "After: Tiled Floor and Shower", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/beach-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
 ];
