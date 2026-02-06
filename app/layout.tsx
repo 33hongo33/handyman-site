@@ -106,7 +106,7 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* Mobile */}
+            {/* Mobile: hamburger + quick actions */}
             <div className="md:hidden flex items-center gap-3">
               <a
                 href="https://instagram.com/abode_onsalal"
@@ -123,6 +123,67 @@ export default function RootLayout({
               >
                 Call
               </a>
+
+              {/* ✅ Hamburger dropdown (no JS needed) */}
+              <details className="relative">
+                <summary
+                  className="list-none cursor-pointer select-none px-3 py-2 rounded-lg border border-[#3b2a18] bg-white/70 text-[#3b2a18] text-base leading-none"
+                  aria-label="Open menu"
+                  title="Menu"
+                >
+                  ☰
+                </summary>
+
+                {/* Dropdown panel */}
+                <div className="absolute right-0 mt-3 w-56 wood-panel p-3">
+                  <div className="rounded-2xl bg-white/90 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-3 shadow-sm">
+                    <nav className="grid gap-2 text-base font-semibold text-[#3b2a18]">
+                      <a
+                        href="/services"
+                        className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-3 py-2 hover:bg-white transition"
+                      >
+                        Services
+                      </a>
+                      <a
+                        href="/projects"
+                        className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-3 py-2 hover:bg-white transition"
+                      >
+                        Projects
+                      </a>
+                      <a
+                        href="/contact"
+                        className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-3 py-2 hover:bg-white transition"
+                      >
+                        Contact
+                      </a>
+
+                      <a
+                        href="https://instagram.com/abode_onsalal"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-3 py-2 hover:bg-white transition"
+                      >
+                        Current Renovation
+                      </a>
+                    </nav>
+
+                    <div className="mt-3 grid grid-cols-2 gap-2">
+                      <a
+                        href="sms:5419818246"
+                        className="text-center rounded-xl border border-[#3b2a18] bg-white/70 px-3 py-2 text-sm font-semibold text-[#3b2a18]"
+                      >
+                        Text
+                      </a>
+                      <a
+                        href="tel:5419818246"
+                        className="text-center rounded-xl bg-[#3b2a18] px-3 py-2 text-sm font-semibold text-white"
+                      >
+                        Call
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </details>
             </div>
           </div>
         </header>
@@ -134,7 +195,9 @@ export default function RootLayout({
         <footer className="mt-20 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-[var(--muted)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>© {new Date().getFullYear()} Kane Lopinski Handyman Services</div>
+              <div>
+                © {new Date().getFullYear()} Kane Lopinski Handyman Services
+              </div>
 
               <div className="flex gap-4">
                 <a
@@ -157,7 +220,8 @@ export default function RootLayout({
             </div>
 
             <div className="mt-4">
-              Serving Eugene & Springfield • Modern Rustic Finish • Reliable Scheduling
+              Serving Eugene & Springfield • Modern Rustic Finish • Reliable
+              Scheduling
             </div>
           </div>
         </footer>
