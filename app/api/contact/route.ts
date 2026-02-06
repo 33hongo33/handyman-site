@@ -1,7 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 function escapeHtml(value: string) {
   return value
     .replaceAll("&", "&amp;")
@@ -13,11 +11,16 @@ function escapeHtml(value: string) {
 
 export async function POST(req: Request) {
   try {
-    if (!process.env.RESEND_API_KEY) {
-      return new Response(JSON.stringify({ error: "Missing RESEND_API_KEY" }), {
-        status: 500,
-      });
+    const apiKey = process.env.RESEND_API_KEY;
+
+    if (!apiKey) {
+      return new Response(
+        JSON.stringify({ error: "Missing RESEND_API_KEY" }),
+        { status: 500 }
+      );
     }
+
+    const resend = new Resend(apiKey);
 
     const body = await req.json();
 
@@ -28,9 +31,10 @@ export async function POST(req: Request) {
     const details = String(body?.details ?? "").trim();
 
     if (!name || !phone || !details) {
-      return new Response(JSON.stringify({ error: "Missing required fields" }), {
-        status: 400,
-      });
+      return new Response(
+        JSON.stringify({ error: "Missing required fields" }),
+        { status: 400 }
+      );
     }
 
     const html = `
@@ -41,14 +45,13 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${escapeHtml(email || "(not provided)")}</p>
         <p><strong>Location:</strong> ${escapeHtml(location || "(not provided)")}</p>
         <p><strong>Details:</strong></p>
-        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px; border:1px solid #e5e5e5;">${escapeHtml(
-          details
-        )}</pre>
+        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px; border:1px solid #e5e5e5;">
+${escapeHtml(details)}
+        </pre>
       </div>
     `;
 
     const result = await resend.emails.send({
-      // This works for testing. Later we’ll switch to your own domain email.
       from: "Kane Lopinski Handyman <onboarding@resend.dev>",
       to: "kanelopinskihandyman@gmail.com",
       subject: `New quote request: ${name}${location ? ` (${location})` : ""}`,
@@ -56,19 +59,15 @@ export async function POST(req: Request) {
       html,
     });
 
-    // Resend can return { error } without throwing
     if ((result as any)?.error) {
-      const err = (result as any).error;
       return new Response(
-        JSON.stringify({
-          error: err?.message || "Resend failed",
-          code: err?.code,
-        }),
+        JSON.stringify({ error: "Resend failed" }),
         { status: 500 }
       );
     }
 
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
+
   } catch (err: any) {
     return new Response(
       JSON.stringify({ error: err?.message || "Failed to send" }),
