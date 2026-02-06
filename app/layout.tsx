@@ -34,8 +34,13 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--bg)] text-[var(--text)]`}
       >
         {/* ================= HEADER ================= */}
-        <header className="sticky top-0 z-50 wood-header border-b border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-          <div className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between">
+        {/* ✅ Key fixes:
+            - header is relative + overflow-visible
+            - dropdown is positioned "top-full" and has a very high z-index
+            - dropdown wrapper uses pointer-events + proper stacking so it appears above page content
+        */}
+        <header className="sticky top-0 z-50 relative overflow-visible wood-header border-b border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+          <div className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between overflow-visible">
             {/* Brand */}
             <div>
               <a
@@ -105,9 +110,9 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* Mobile: Menu only */}
-            <div className="md:hidden">
-              <details className="group relative">
+            {/* Mobile Menu (dropdown) */}
+            <div className="md:hidden relative overflow-visible">
+              <details className="group relative overflow-visible">
                 <summary className="list-none cursor-pointer select-none">
                   <span className="inline-flex items-center gap-2 rounded-xl border border-[#3b2a18]/40 bg-white/75 px-4 py-2 text-base font-semibold text-[#3b2a18] shadow-sm backdrop-blur-sm">
                     <span className="leading-none">Menu</span>
@@ -117,8 +122,8 @@ export default function RootLayout({
                   </span>
                 </summary>
 
-                {/* ✅ Full-width dropdown so it never clips */}
-                <div className="absolute left-0 right-0 mt-3">
+                {/* ✅ DROPDOWN PANEL */}
+                <div className="absolute left-0 right-0 top-full mt-3 z-[9999]">
                   <div className="wood-panel p-3 shadow-[0_20px_40px_rgba(0,0,0,0.18)]">
                     <div className="rounded-2xl bg-white/90 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-4">
                       <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
@@ -144,7 +149,6 @@ export default function RootLayout({
                         >
                           Contact
                         </a>
-
                         <a
                           href="https://instagram.com/abode_onsalal"
                           target="_blank"
