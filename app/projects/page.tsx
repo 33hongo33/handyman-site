@@ -86,8 +86,9 @@ const PROJECTS: ProjectSection[] = [
     description:
       "Subfloor prep and full luxury vinyl plank install for durability and clean finish.",
     photos: [
-      { src: "/projects/flooring-lvp-01.jpg", caption: "Finished LVP install", alt: "Finished luxury vinyl plank flooring" },
-      { src: "/projects/flooring-lvp-02.jpg", caption: "Plank + trim detail", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/bnb-flooring1.png", caption: "LVP Flooring Install", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/bnb-flooring2.png", caption: "LVP", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/bnb-flooring3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
 ];
