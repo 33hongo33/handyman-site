@@ -74,9 +74,9 @@ const PROJECTS: ProjectSection[] = [
     description:
       "Fence repair, railing reinforcement, and exterior wood restoration for safety and durability.",
     photos: [
-      { src: "/projects/fence-01.jpg", caption: "Fence reinforcement", alt: "Fence reinforcement repair" },
-      { src: "/projects/railing-01.jpg", caption: "Railing stabilization", alt: "Deck railing stabilization repair" },
-      { src: "/projects/fence-02.jpg", caption: "Finished fence repair", alt: "Finished fence repair result" },
+      { src: "/projects/fence-eugene1.png", caption: "Fence Build in Eugene", alt: "Fence reinforcement repair" },
+      { src: "/projects/fence-eugene2.png", caption: "Updating Fence", alt: "Deck railing stabilization repair" },
+      { src: "/projects/fence-eugene3.png", caption: "Finished fence repair", alt: "Finished fence repair result" },
     ],
   },
 
