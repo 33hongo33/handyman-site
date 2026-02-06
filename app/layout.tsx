@@ -106,24 +106,23 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* Mobile Menu */}
+            {/* Mobile Menu (portal overlay) */}
             <div className="md:hidden">
-              <MobileMenu
-                phone="5419818246"
-                instagramUrl="https://instagram.com/abode_onsalal"
-              />
+              <MobileMenu instagramUrl="https://instagram.com/abode_onsalal" />
             </div>
           </div>
         </header>
 
         {/* ================= MAIN ================= */}
-        <main>{children}</main>
+        <main className="relative z-0">{children}</main>
 
         {/* ================= FOOTER ================= */}
         <footer className="mt-20 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-[var(--muted)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>© {new Date().getFullYear()} Kane Lopinski Handyman Services</div>
+              <div>
+                © {new Date().getFullYear()} Kane Lopinski Handyman Services
+              </div>
 
               <div className="flex gap-4">
                 <a
@@ -135,7 +134,10 @@ export default function RootLayout({
                   Current Renovation
                 </a>
 
-                <a href="tel:5419818246" className="underline underline-offset-4">
+                <a
+                  href="tel:5419818246"
+                  className="underline underline-offset-4"
+                >
                   Call 541-981-8246
                 </a>
 
@@ -146,7 +148,8 @@ export default function RootLayout({
             </div>
 
             <div className="mt-4">
-              Serving Eugene & Springfield • Modern Rustic Finish • Reliable Scheduling
+              Serving Eugene & Springfield • Modern Rustic Finish • Reliable
+              Scheduling
             </div>
           </div>
         </footer>
