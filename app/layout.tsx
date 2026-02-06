@@ -35,12 +35,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--bg)] text-[var(--text)]`}
       >
         {/* ================= HEADER ================= */}
-        {/* Key fixes:
-           - header is relative + overflow-visible so menu can layer correctly
-           - keep header z-50, but MobileMenu uses fixed overlay with higher z-index
-        */}
-        <header className="sticky top-0 z-50 relative overflow-visible wood-header border-b border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-          <div className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between overflow-visible">
+        <header className="sticky top-0 z-50 wood-header border-b border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+          <div className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between">
             {/* Brand */}
             <div>
               <a
@@ -111,7 +107,7 @@ export default function RootLayout({
             </nav>
 
             {/* Mobile Menu */}
-            <div className="md:hidden relative z-[60]">
+            <div className="md:hidden">
               <MobileMenu
                 phone="5419818246"
                 instagramUrl="https://instagram.com/abode_onsalal"
@@ -121,15 +117,13 @@ export default function RootLayout({
         </header>
 
         {/* ================= MAIN ================= */}
-        <main className="relative z-0">{children}</main>
+        <main>{children}</main>
 
         {/* ================= FOOTER ================= */}
         <footer className="mt-20 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-[var(--muted)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                © {new Date().getFullYear()} Kane Lopinski Handyman Services
-              </div>
+              <div>© {new Date().getFullYear()} Kane Lopinski Handyman Services</div>
 
               <div className="flex gap-4">
                 <a
@@ -141,10 +135,7 @@ export default function RootLayout({
                   Current Renovation
                 </a>
 
-                <a
-                  href="tel:5419818246"
-                  className="underline underline-offset-4"
-                >
+                <a href="tel:5419818246" className="underline underline-offset-4">
                   Call 541-981-8246
                 </a>
 
@@ -155,8 +146,7 @@ export default function RootLayout({
             </div>
 
             <div className="mt-4">
-              Serving Eugene & Springfield • Modern Rustic Finish • Reliable
-              Scheduling
+              Serving Eugene & Springfield • Modern Rustic Finish • Reliable Scheduling
             </div>
           </div>
         </footer>
