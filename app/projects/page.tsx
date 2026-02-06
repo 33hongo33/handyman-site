@@ -91,6 +91,18 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/bnb-flooring3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
+
+  {
+    title: "Shower Renovations",
+    location: "Springfield",
+    description:
+      "Complete shower remodel and subfloor fix.",
+    photos: [
+      { src: "/projects/bnb-shower1.png", caption: "LVP Shower Tiles Installed", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/bnb-shower2.png", caption: "Custom Maple and Purple Heart Wood Accents", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/bnb-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
+    ],
+  },
 ];
 
 export default function ProjectsPage() {

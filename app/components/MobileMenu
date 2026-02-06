@@ -1,0 +1,134 @@
+"use client";
+
+import { useEffect, useRef, useState } from "react";
+
+type Props = {
+  phone: string; // "5419818246"
+  instagramUrl: string;
+};
+
+export default function MobileMenu({ phone, instagramUrl }: Props) {
+  const [open, setOpen] = useState(false);
+  const btnRef = useRef<HTMLButtonElement | null>(null);
+
+  // Close on Escape
+  useEffect(() => {
+    function onKey(e: KeyboardEvent) {
+      if (e.key === "Escape") setOpen(false);
+    }
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, []);
+
+  // Prevent background scroll while menu is open
+  useEffect(() => {
+    if (!open) return;
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = original;
+    };
+  }, [open]);
+
+  return (
+    <>
+      <button
+        ref={btnRef}
+        type="button"
+        onClick={() => setOpen(true)}
+        className="md:hidden inline-flex items-center gap-2 rounded-xl border border-[#3b2a18]/40 bg-white/75 px-4 py-2 text-base font-semibold text-[#3b2a18] shadow-sm backdrop-blur-sm"
+        aria-haspopup="dialog"
+        aria-expanded={open}
+      >
+        Menu <span className="text-lg leading-none">▾</span>
+      </button>
+
+      {open && (
+        <div className="fixed inset-0 z-[9999]">
+          {/* Overlay */}
+          <div
+            className="absolute inset-0 bg-black/30"
+            onClick={() => setOpen(false)}
+          />
+
+          {/* Panel */}
+          <div className="absolute left-0 right-0 top-[88px] px-4">
+            <div className="wood-panel p-3 shadow-[0_20px_50px_rgba(0,0,0,0.28)]">
+              <div className="rounded-2xl bg-white/90 backdrop-blur-sm border border-[rgba(87,63,37,0.20)] p-4">
+                <div className="flex items-center justify-between gap-3">
+                  <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
+                    Navigation
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => setOpen(false)}
+                    className="rounded-lg border border-[#3b2a18]/25 bg-white/70 px-3 py-1 text-sm font-semibold text-[#3b2a18]"
+                    aria-label="Close menu"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                <nav className="mt-3 grid gap-2">
+                  <a
+                    href="/services"
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-4 py-3 text-base font-semibold text-[#3b2a18] hover:bg-white transition"
+                  >
+                    Services
+                  </a>
+                  <a
+                    href="/projects"
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-4 py-3 text-base font-semibold text-[#3b2a18] hover:bg-white transition"
+                  >
+                    Projects
+                  </a>
+                  <a
+                    href="/contact"
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-4 py-3 text-base font-semibold text-[#3b2a18] hover:bg-white transition"
+                  >
+                    Contact
+                  </a>
+                  <a
+                    href={instagramUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-xl border border-[rgba(87,63,37,0.22)] bg-white/70 px-4 py-3 text-base font-semibold text-[#3b2a18] hover:bg-white transition"
+                  >
+                    Current Renovation
+                  </a>
+                </nav>
+
+                <div className="my-4 h-px bg-[rgba(87,63,37,0.20)]" />
+
+                <div className="grid grid-cols-2 gap-3">
+                  <a
+                    href={`tel:${phone}`}
+                    onClick={() => setOpen(false)}
+                    className="text-center rounded-xl bg-[#3b2a18] px-4 py-3 text-base font-semibold text-white shadow-sm hover:opacity-95 transition"
+                  >
+                    Call
+                  </a>
+                  <a
+                    href={`sms:${phone}`}
+                    onClick={() => setOpen(false)}
+                    className="text-center rounded-xl border border-[#3b2a18] bg-white/75 px-4 py-3 text-base font-semibold text-[#3b2a18] hover:bg-white transition"
+                  >
+                    Text
+                  </a>
+                </div>
+
+                <p className="mt-3 text-xs leading-5 text-[var(--muted)]">
+                  Serving Eugene & Springfield • Quick estimates via text photos
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
