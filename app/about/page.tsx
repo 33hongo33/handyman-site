@@ -51,7 +51,7 @@ export default function AboutPage() {
 
           <div className="bg-white/70 p-5">
             <div className="text-sm text-[#6b4b2a]">
-              Based in Eugene • Serving Springfield and the Oregon Coast
+              Based in Eugene • Serving Eugene, Springfield and the Oregon Coast
             </div>
           </div>
         </div>
