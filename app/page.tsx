@@ -227,6 +227,55 @@ export default function Home() {
             </div>
           </a>
         </div>
+
+        {/* ✅ Why Choose Me (same style) */}
+        <div className="mt-16 wood-panel p-10">
+          <div className="rounded-2xl bg-white/80 backdrop-blur-sm px-6 py-6 border border-[rgba(87,63,37,0.18)] shadow-sm">
+            <h2 className="text-2xl font-semibold tracking-tight text-[var(--text)]">
+              Why Choose Me
+            </h2>
+
+            <ul className="mt-6 space-y-4">
+              <li className="flex gap-3">
+                <span className="rustic-dot" />
+                <span className="text-sm sm:text-base leading-7 text-[var(--muted)]">
+                  Direct communication — no office runaround.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="rustic-dot" />
+                <span className="text-sm sm:text-base leading-7 text-[var(--muted)]">
+                  Clean, detail-focused finish work that holds up in Oregon weather.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="rustic-dot" />
+                <span className="text-sm sm:text-base leading-7 text-[var(--muted)]">
+                  Reliable scheduling and clear expectations before the work starts.
+                </span>
+              </li>
+              <li className="flex gap-3">
+                <span className="rustic-dot" />
+                <span className="text-sm sm:text-base leading-7 text-[var(--muted)]">
+                  Airbnb-friendly: punch lists and quick turnover fixes to keep guests happy.
+                </span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* ✅ SEO Paragraph (bottom of home page) */}
+        <div className="mt-10 wood-panel p-10">
+          <div className="rounded-2xl bg-white/80 backdrop-blur-sm px-6 py-6 border border-[rgba(87,63,37,0.18)] shadow-sm">
+            <p className="text-sm sm:text-base leading-7 text-[var(--muted)]">
+              Kane Lopinski Handyman Services provides handyman services in Eugene
+              and Springfield, including electrical fixture installs, outlet and
+              switch updates, minor plumbing repairs, faucet installs, flooring
+              installation, tile work, and Airbnb turnover maintenance throughout
+              Eugene, Springfield, and surrounding Lane County areas.
+            </p>
+          </div>
+        </div>
       </div>
     </main>
   );
