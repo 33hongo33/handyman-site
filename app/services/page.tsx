@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export default function Services() {
   const services = [
     {
@@ -68,9 +70,24 @@ export default function Services() {
           </div>
 
           <div className="mt-6 max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
-            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
-              Handyman Services in Eugene & Springfield
-            </h1>
+            {/* ✅ Header row (title + logo in same position style as Projects page) */}
+            <div className="flex items-center justify-between gap-6">
+              <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
+                Handyman Services in Eugene & Springfield
+              </h1>
+
+              {/* ✅ Logo to the right (inside the white panel) */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
+                <Image
+                  src="/kane-logo.png"
+                  alt="Kane Lopinski Handyman Services Logo"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </div>
+
             <p className="mt-3 text-[15px] sm:text-base leading-7 text-[var(--muted)]">
               Professional repairs, installs, and finish work — including Airbnb-ready
               punch lists and flooring projects.
