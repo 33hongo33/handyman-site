@@ -12,22 +12,15 @@ import Image from "next/image";
  */
 
 type Photo = {
-  /** Path from /public (example: /projects/hardwood-before-after.png) */
   src: string;
-  /** Short label shown ABOVE the photo */
   caption: string;
-  /** Accessibility text (briefly describe what's in the photo) */
   alt: string;
 };
 
 type ProjectSection = {
-  /** Big section title (ex: "Tile Work") */
   title: string;
-  /** Small location line (ex: "Eugene") */
   location?: string;
-  /** One-sentence description under the title */
   description?: string;
-  /** Up to 3 photos show per row on desktop */
   photos: Photo[];
 };
 
@@ -66,7 +59,7 @@ const PROJECTS: ProjectSection[] = [
     ],
   },
 
-   {
+  {
     title: "Kitchen Remodel",
     location: "Eugene & Springfield",
     description:
@@ -75,7 +68,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/airbnb-kitchen5.png", caption: "Kichen Before and After", alt: "Tile layout and spacing" },
       { src: "/projects/airbnb-kitchen4.png", caption: "Kitchen in Progress", alt: "Tile with clean grout lines" },
       { src: "/projects/airbnb-kitchen6.png", caption: "Kitchen Remodel Finished", alt: "Tile edges and trim finish" },
-
     ],
   },
 
@@ -88,7 +80,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/fence-eugene1.png", caption: "Fence Build in Eugene", alt: "Fence reinforcement repair" },
       { src: "/projects/fence-eugene2.png", caption: "Updating Fence", alt: "Deck railing stabilization repair" },
       { src: "/projects/fence-eugene3.png", caption: "Finished fence repair", alt: "Finished fence repair result" },
-
       { src: "/projects/don-rail1-v2.png", caption: "Rail Upgrade Before Pciture", alt: "Fence reinforcement repair" },
       { src: "/projects/don-rail2-v2.png", caption: "Rail Upgrade After Picture", alt: "Deck railing stabilization repair" },
       { src: "/projects/don-rail3-v2.png", caption: "Rail Upgrade", alt: "Finished fence repair result" },
@@ -115,7 +106,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/bnb-shower1.png", caption: "LVP Shower Tiles Installed", alt: "Finished luxury vinyl plank flooring" },
       { src: "/projects/bnb-shower2.png", caption: "Custom Maple and Purple Heart Wood Accents", alt: "Luxury vinyl plank detail and trim" },
       { src: "/projects/bnb-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
-
       { src: "/projects/beach-shower1.png", caption: "Before: Beach Bathroom", alt: "Finished luxury vinyl plank flooring" },
       { src: "/projects/beach-shower2.png", caption: "After: Tiled Floor and Shower", alt: "Luxury vinyl plank detail and trim" },
       { src: "/projects/beach-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
@@ -145,15 +135,28 @@ export default function ProjectsPage() {
           </div>
 
           <div className="mt-6 max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
-            <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
-              Recent Work
-            </h1>
+            <div className="flex items-center justify-between">
+              <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
+                Recent Work
+              </h1>
+
+              {/* ✅ Logo Added Here */}
+              <div className="relative w-16 h-16 sm:w-20 sm:h-20">
+                <Image
+                  src="/kane-logo.png"
+                  alt="Kane Lopinski Handyman Services Logo"
+                  fill
+                  className="object-contain"
+                />
+              </div>
+            </div>
+
             <p className="mt-3 text-[var(--muted)] leading-7">
               Flooring, tile, fencing, railing repair, and finish work completed in Eugene & Springfield.
             </p>
           </div>
 
-          {/* ✅ Buttons: Mobile gets IG link below; Desktop gets IG button to the right */}
+          {/* Buttons remain unchanged */}
           <div className="mt-8">
             <div className="flex flex-wrap gap-3">
               <a href="sms:5419818246" className="btn-primary">
@@ -164,7 +167,6 @@ export default function ProjectsPage() {
                 Call 541-981-8246
               </a>
 
-              {/* Desktop-only: IG button to the right of Call */}
               <a
                 href="https://instagram.com/abode_onsalal"
                 target="_blank"
@@ -175,7 +177,6 @@ export default function ProjectsPage() {
               </a>
             </div>
 
-            {/* Mobile-only: IG link under the buttons */}
             <div className="mt-3 sm:hidden">
               <a
                 href="https://instagram.com/abode_onsalal"
@@ -189,12 +190,11 @@ export default function ProjectsPage() {
           </div>
         </div>
 
-        {/* Projects */}
+        {/* Projects Grid remains 100% unchanged */}
         <div className="mt-12 grid gap-12">
           {PROJECTS.map((section) => (
             <div key={section.title} className="wood-panel p-8">
               <div className="rounded-2xl bg-white/85 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6 shadow-sm">
-                {/* Section Header */}
                 <div>
                   <h2 className="text-2xl font-semibold text-[var(--text)]">
                     {section.title}
@@ -208,7 +208,6 @@ export default function ProjectsPage() {
                   )}
                 </div>
 
-                {/* Photo Grid */}
                 <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
                   {section.photos.map((photo) => (
                     <div key={photo.src}>
