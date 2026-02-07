@@ -29,8 +29,6 @@ export default function Services() {
         "Subfloor prep & leveling",
       ],
     },
-
-    // ✅ Added 3 new service boxes (same style)
     {
       title: "Electrical",
       items: [
@@ -69,29 +67,30 @@ export default function Services() {
             Services
           </div>
 
-          <div className="mt-6 max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
-            {/* ✅ Header row (title + logo in same position style as Projects page) */}
-            <div className="flex items-center justify-between gap-6">
+          {/* ✅ Title + Logo row (logo OUTSIDE white block) */}
+          <div className="mt-6 flex items-start justify-between gap-8">
+            {/* White content block */}
+            <div className="max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
               <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
                 Handyman Services in Eugene & Springfield
               </h1>
 
-              {/* ✅ Logo to the right (inside the white panel) */}
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0">
-                <Image
-                  src="/kane-logo.png"
-                  alt="Kane Lopinski Handyman Services Logo"
-                  fill
-                  className="object-contain"
-                  priority
-                />
-              </div>
+              <p className="mt-3 text-[15px] sm:text-base leading-7 text-[var(--muted)]">
+                Professional repairs, installs, and finish work — including Airbnb-ready
+                punch lists and flooring projects.
+              </p>
             </div>
 
-            <p className="mt-3 text-[15px] sm:text-base leading-7 text-[var(--muted)]">
-              Professional repairs, installs, and finish work — including Airbnb-ready
-              punch lists and flooring projects.
-            </p>
+            {/* ✅ Large Logo in wood panel area */}
+            <div className="hidden sm:block relative w-[220px] h-[220px] md:w-[260px] md:h-[260px] shrink-0">
+              <Image
+                src="/kane-logo.png"
+                alt="Kane Lopinski Handyman Services Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
@@ -108,7 +107,6 @@ export default function Services() {
         <div className="mt-12 grid gap-8 md:grid-cols-3">
           {services.map((section) => (
             <div key={section.title} className="wood-panel p-7">
-              {/* Paper inner panel for readability */}
               <div className="rounded-2xl bg-white/82 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6 shadow-sm">
                 <h2 className="text-xl font-semibold text-[var(--text)]">
                   {section.title}
