@@ -77,7 +77,7 @@ export default function RootLayout({
 
               <a
                 href="/contact"
-                className="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#3b2a18] after:transition-all after:duration-300 hover:after:w-full"
+                className="relative font-semibold text-[#3b2a18] hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#3b2a18] after:transition-all after:duration-300 hover:after:w-full"
               >
                 Contact
               </a>
@@ -89,20 +89,6 @@ export default function RootLayout({
                 className="relative font-semibold text-[#3b2a18] hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#3b2a18] after:transition-all after:duration-300 hover:after:w-full"
               >
                 Current Renovation
-              </a>
-
-              <a
-                href="tel:5419818246"
-                className="ml-2 px-6 py-3 rounded-xl bg-[#3b2a18] text-white shadow-sm hover:opacity-90 transition"
-              >
-                Call
-              </a>
-
-              <a
-                href="sms:5419818246"
-                className="px-6 py-3 rounded-xl border border-[#3b2a18] hover:bg-[#f4e7d3] transition"
-              >
-                Text
               </a>
             </nav>
 
@@ -135,14 +121,10 @@ export default function RootLayout({
                 </a>
 
                 <a
-                  href="tel:5419818246"
+                  href="/contact"
                   className="underline underline-offset-4"
                 >
-                  Call 541-981-8246
-                </a>
-
-                <a href="sms:5419818246" className="underline underline-offset-4">
-                  Text
+                  Contact
                 </a>
               </div>
             </div>
