@@ -1,6 +1,5 @@
 export const revalidate = 0;
 
-
 import Image from "next/image";
 
 /**
@@ -40,16 +39,12 @@ const PROJECTS: ProjectSection[] = [
     description:
       "Full carpet removal and hardwood installation transforming the space into a clean, modern finish.",
     photos: [
-      
-      // Add more photos like this:
-       { src: "/projects/brazilian-oak-bnb.png", caption: "Brazilian Oak Installed at AirBNB", alt: "Hardwood plank detail close-up" },
-       { src: "/projects/brazilian-oak2-bnb.png", caption: "Brazilian Oak Installed in Bedroom AirBNB", alt: "Hardwood plank detail close-up" },
-       { src: "/projects/brazilian-oak3-bnb.png", caption: "Brazilian Oak Living Room", alt: "Hardwood plank detail close-up" },
-       { src: "/projects/hardwood-before-after.png", caption: "Before and After Beach House Bedroom", alt: "Hardwood plank detail close-up" },
-       { src: "/projects/beach-hardwood.png", caption: "Distressed Beech Install Beach House", alt: "Hardwood plank detail close-up" },
-       { src: "/projects/beach-hardwood2.png", caption: "Beach House Bedroom", alt: "Hardwood plank detail close-up" },
-       
-       
+      { src: "/projects/brazilian-oak-bnb.png", caption: "Brazilian Oak Installed at AirBNB", alt: "Hardwood plank detail close-up" },
+      { src: "/projects/brazilian-oak2-bnb.png", caption: "Brazilian Oak Installed in Bedroom AirBNB", alt: "Hardwood plank detail close-up" },
+      { src: "/projects/brazilian-oak3-bnb.png", caption: "Brazilian Oak Living Room", alt: "Hardwood plank detail close-up" },
+      { src: "/projects/hardwood-before-after.png", caption: "Before and After Beach House Bedroom", alt: "Hardwood plank detail close-up" },
+      { src: "/projects/beach-hardwood.png", caption: "Distressed Beech Install Beach House", alt: "Hardwood plank detail close-up" },
+      { src: "/projects/beach-hardwood2.png", caption: "Beach House Bedroom", alt: "Hardwood plank detail close-up" },
     ],
   },
 
@@ -102,8 +97,7 @@ const PROJECTS: ProjectSection[] = [
   {
     title: "Shower Renovations",
     location: "Springfield",
-    description:
-      "Complete shower remodel and subfloor fix.",
+    description: "Complete shower remodel and subfloor fix.",
     photos: [
       { src: "/projects/bnb-shower1.png", caption: "LVP Shower Tiles Installed", alt: "Finished luxury vinyl plank flooring" },
       { src: "/projects/bnb-shower2.png", caption: "Custom Maple and Purple Heart Wood Accents", alt: "Luxury vinyl plank detail and trim" },
@@ -118,15 +112,13 @@ const PROJECTS: ProjectSection[] = [
   {
     title: "Hot Tub Canopy Build",
     location: "Springfield",
-    description:
-      "Put together hot tub canopy and connected in to concrete pilings.",
+    description: "Put together hot tub canopy and connected in to concrete pilings.",
     photos: [
       { src: "/projects/hottub1.png", caption: "LVP Flooring Install", alt: "Finished luxury vinyl plank flooring" },
       { src: "/projects/hottub2.png", caption: "LVP", alt: "Luxury vinyl plank detail and trim" },
       { src: "/projects/hottub3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
-
 ];
 
 export default function ProjectsPage() {
@@ -148,13 +140,39 @@ export default function ProjectsPage() {
             </p>
           </div>
 
-          <div className="mt-8 flex flex-wrap gap-3">
-            <a href="sms:5419818246" className="btn-primary">
-              Text Photos for Estimate
-            </a>
-            <a href="tel:5419818246" className="btn-outline">
-              Call 541-981-8246
-            </a>
+          {/* ✅ Buttons: Mobile gets IG link below; Desktop gets IG button to the right */}
+          <div className="mt-8">
+            <div className="flex flex-wrap gap-3">
+              <a href="sms:5419818246" className="btn-primary">
+                Text Photos for Estimate
+              </a>
+
+              <a href="tel:5419818246" className="btn-outline">
+                Call 541-981-8246
+              </a>
+
+              {/* Desktop-only: IG button to the right of Call */}
+              <a
+                href="https://instagram.com/abode_onsalal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hidden sm:inline-flex btn-secondary"
+              >
+                Current Renovation
+              </a>
+            </div>
+
+            {/* Mobile-only: IG link under the buttons */}
+            <div className="mt-3 sm:hidden">
+              <a
+                href="https://instagram.com/abode_onsalal"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex underline underline-offset-4 text-[var(--muted)]"
+              >
+                Current Renovation (Instagram)
+              </a>
+            </div>
           </div>
         </div>
 
