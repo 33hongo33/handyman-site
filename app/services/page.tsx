@@ -27,6 +27,35 @@ export default function Services() {
         "Subfloor prep & leveling",
       ],
     },
+
+    // ✅ Added 3 new service boxes (same style)
+    {
+      title: "Electrical",
+      items: [
+        "Light fixture installs & replacements",
+        "Outlet & switch updates",
+        "Ceiling fans & bathroom fans",
+        "Troubleshooting minor electrical issues",
+      ],
+    },
+    {
+      title: "Minor Plumbing Repairs",
+      items: [
+        "Faucet installs & replacements",
+        "Toilet part replacements (flapper, fill valve, etc.)",
+        "Drain troubleshooting (minor clogs)",
+        "Showerhead & valve trim replacements",
+      ],
+    },
+    {
+      title: "Furniture & IKEA Assembly",
+      items: [
+        "IKEA furniture assembly",
+        "Shelving & storage installs",
+        "Wall mounting (TVs, mirrors, art)",
+        "Hardware installs (hooks, racks, curtain rods)",
+      ],
+    },
   ];
 
   return (
@@ -107,3 +136,4 @@ export default function Services() {
     </main>
   );
 }
+
