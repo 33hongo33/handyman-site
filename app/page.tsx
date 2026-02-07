@@ -19,8 +19,38 @@ export default function Home() {
     <main className="min-h-screen px-6 py-16">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-10 md:grid-cols-2 items-start">
+
           {/* LEFT — Hero Section */}
           <div className="wood-panel p-10">
+
+            {/* ✅ Logo + Brand Block (Top of Mobile & Desktop Left) */}
+            <div className="mb-6 flex items-center gap-4">
+              <div className="relative w-[80px] h-[80px] sm:w-[100px] sm:h-[100px] shrink-0">
+                <Image
+                  src="/kane-logo.png"
+                  alt="Kane Lopinski Handyman Services Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="(max-width: 640px) 80px, 100px"
+                />
+              </div>
+
+              <div className="leading-tight">
+                <div
+                  className={`${rusticFont.className} text-2xl sm:text-3xl font-bold tracking-[0.02em] text-[#3b2a18]`}
+                >
+                  Kane Lopinski
+                </div>
+                <div
+                  className={`${rusticFont.className} text-base sm:text-lg font-semibold tracking-wide text-[#6b4b2a]`}
+                >
+                  Handyman Services
+                </div>
+              </div>
+            </div>
+
+            {/* Location Badge */}
             <div className="inline-flex items-center rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold tracking-wide text-[var(--accent-dark)] uppercase">
               Eugene & Springfield
             </div>
@@ -43,25 +73,22 @@ export default function Home() {
               </p>
             </div>
 
-           {/* CTA Buttons */}
-          <div className="mt-9 flex flex-wrap gap-4">
-            <a
-              href="sms:5419818246"
-              className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
-            >
-              Text for a Quote
-           </a>
+            {/* CTA Buttons */}
+            <div className="mt-9 flex flex-wrap gap-4">
+              <a
+                href="sms:5419818246"
+                className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
+              >
+                Text for a Quote
+              </a>
 
-            <a
-              href="/projects"
-              className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
-            >
-              View Projects
-            </a>
-          </div>
-
-
-
+              <a
+                href="/projects"
+                className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
+              >
+                View Projects
+              </a>
+            </div>
 
             {/* Feature Highlights */}
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
@@ -93,6 +120,7 @@ export default function Home() {
 
           {/* RIGHT — Image + Popular Requests */}
           <div className="grid gap-10">
+
             {/* Image Panel */}
             <div className="wood-panel p-6">
               <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-4 shadow-sm">
@@ -156,57 +184,12 @@ export default function Home() {
                 Pro tip: For Airbnb jobs, include check-in/check-out timing.
               </p>
             </div>
+
           </div>
-        </div>
-
-        {/* Bottom Navigation Cards */}
-        <div className="mt-16 grid gap-6 md:grid-cols-3">
-          <a href="/services" className="wood-panel p-7 hover:shadow-md transition">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
-              <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
-                What I Do
-              </div>
-              <h3 className="mt-2 text-lg font-semibold text-[var(--text)]">
-                Services
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Repairs, installs, finish carpentry, flooring, and more.
-              </p>
-            </div>
-          </a>
-
-          <a href="/projects" className="wood-panel p-7 hover:shadow-md transition">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
-              <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
-                Proof
-              </div>
-              <h3 className="mt-2 text-lg font-semibold text-[var(--text)]">
-                Projects
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Before & after photos from recent work.
-              </p>
-            </div>
-          </a>
-
-          <a href="/contact" className="wood-panel p-7 hover:shadow-md transition">
-            <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
-              <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
-                Get in Touch
-              </div>
-              <h3 className="mt-2 text-lg font-semibold text-[var(--text)]">
-                Contact
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Text for scheduling and quotes.
-              </p>
-            </div>
-          </a>
         </div>
       </div>
     </main>
   );
 }
-
 
 
