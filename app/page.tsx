@@ -257,7 +257,7 @@ export default function Home() {
               <li className="flex gap-3">
                 <span className="rustic-dot" />
                 <span className="text-sm sm:text-base leading-7 text-[var(--muted)]">
-                  Airbnb-friendly: punch lists and quick turnover fixes to keep guests happy.
+                  Rental & Airbnb-friendly: punch lists and quick turnover fixes to keep guests happy.
                 </span>
               </li>
             </ul>
