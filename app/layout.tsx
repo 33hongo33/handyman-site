@@ -36,7 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--bg)] text-[var(--text)]`}
       >
         {/* ================= HEADER ================= */}
-        <header className="sticky top-0 z-50 wood-header border-b-4 border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
+        <header className="sticky top-0 z-50 wood-header border-b-8 border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
             {/* ================= BRAND (LOGO + TEXT) ================= */}
             <a href="/" className="flex items-center gap-4">
