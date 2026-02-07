@@ -5,10 +5,7 @@ import Image from "next/image";
 /**
  * EASY EDIT GUIDE
  * 1) Add your image files to: /public/projects/
- * 2) Update the PROJECTS array below:
- *    - Change the section title, location, description
- *    - For each photo: update src, caption, alt
- * 3) The layout will stay the same automatically.
+ * 2) Update the PROJECTS array below
  */
 
 type Photo = {
@@ -24,7 +21,6 @@ type ProjectSection = {
   photos: Photo[];
 };
 
-/** ✅ EDIT THIS ONLY */
 const PROJECTS: ProjectSection[] = [
   {
     title: "Hardwood Flooring Installation",
@@ -40,7 +36,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/beach-hardwood2.png", caption: "Beach House Bedroom", alt: "Hardwood plank detail close-up" },
     ],
   },
-
   {
     title: "Tile Work",
     location: "Eugene & Springfield",
@@ -58,7 +53,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/beach-house-bath3.png", caption: "Finished Bathroom", alt: "Tile edges and trim finish" },
     ],
   },
-
   {
     title: "Kitchen Remodel",
     location: "Eugene & Springfield",
@@ -70,7 +64,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/airbnb-kitchen6.png", caption: "Kitchen Remodel Finished", alt: "Tile edges and trim finish" },
     ],
   },
-
   {
     title: "Fencing & Railing",
     location: "Eugene Area",
@@ -85,7 +78,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/don-rail3-v2.png", caption: "Rail Upgrade", alt: "Finished fence repair result" },
     ],
   },
-
   {
     title: "LVP Flooring Installation",
     location: "Eugene",
@@ -97,7 +89,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/bnb-flooring3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
-
   {
     title: "Shower Renovations",
     location: "Springfield",
@@ -111,7 +102,6 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/beach-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
-
   {
     title: "Hot Tub Canopy Build",
     location: "Springfield",
@@ -128,35 +118,40 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen px-6 py-16">
       <div className="mx-auto max-w-6xl">
+
         {/* Page Intro */}
         <div className="wood-panel p-10">
+
           <div className="inline-flex items-center rounded-full bg-[var(--accent-soft)] px-3 py-1 text-xs font-semibold tracking-wide text-[var(--accent-dark)] uppercase">
             Project Gallery
           </div>
 
-          <div className="mt-6 max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
-            <div className="flex items-center justify-between">
+          {/* White content + Large Logo Layout */}
+          <div className="mt-6 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10">
+
+            {/* White Box */}
+            <div className="max-w-3xl rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-5 border border-[rgba(87,63,37,0.18)] shadow-sm">
               <h1 className="text-3xl sm:text-4xl font-semibold tracking-tight text-[var(--text)] leading-tight">
                 Recent Work
               </h1>
-
-              {/* ✅ Logo Added Here */}
-              <div className="relative w-16 h-16 sm:w-20 sm:h-20">
-                <Image
-                  src="/kane-logo.png"
-                  alt="Kane Lopinski Handyman Services Logo"
-                  fill
-                  className="object-contain"
-                />
-              </div>
+              <p className="mt-3 text-[var(--muted)] leading-7">
+                Flooring, tile, fencing, railing repair, and finish work completed in Eugene & Springfield.
+              </p>
             </div>
 
-            <p className="mt-3 text-[var(--muted)] leading-7">
-              Flooring, tile, fencing, railing repair, and finish work completed in Eugene & Springfield.
-            </p>
+            {/* 🔥 500% Larger Logo Outside White Box */}
+            <div className="relative w-[300px] h-[300px] lg:w-[420px] lg:h-[420px] shrink-0">
+              <Image
+                src="/kane-logo.png"
+                alt="Kane Lopinski Handyman Services Logo"
+                fill
+                className="object-contain"
+              />
+            </div>
+
           </div>
 
-          {/* Buttons remain unchanged */}
+          {/* Buttons unchanged */}
           <div className="mt-8">
             <div className="flex flex-wrap gap-3">
               <a href="sms:5419818246" className="btn-primary">
@@ -188,9 +183,10 @@ export default function ProjectsPage() {
               </a>
             </div>
           </div>
+
         </div>
 
-        {/* Projects Grid remains 100% unchanged */}
+        {/* Projects Grid remains unchanged */}
         <div className="mt-12 grid gap-12">
           {PROJECTS.map((section) => (
             <div key={section.title} className="wood-panel p-8">
@@ -199,7 +195,6 @@ export default function ProjectsPage() {
                   <h2 className="text-2xl font-semibold text-[var(--text)]">
                     {section.title}
                   </h2>
-
                   {(section.location || section.description) && (
                     <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
                       {section.location ? `${section.location} • ` : ""}
@@ -235,10 +230,12 @@ export default function ProjectsPage() {
                     </div>
                   ))}
                 </div>
+
               </div>
             </div>
           ))}
         </div>
+
       </div>
     </main>
   );
