@@ -44,21 +44,22 @@ export default function Home() {
             </div>
 
            {/* CTA Buttons */}
-            <div className="mt-9 flex flex-wrap gap-4">
-               <a
-                   href="sms:5419818246"
-                   className="px-6 py-3 rounded-xl bg-[#d2b48c] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#c4a273] transition"
-                >
-                     Text for a Quote
-                 </a>
+          <div className="mt-9 flex flex-wrap gap-4">
+            <a
+              href="sms:5419818246"
+              className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
+            >
+              Text for a Quote
+           </a>
 
-                <a
-                    href="/projects"
-                    className="px-6 py-3 rounded-xl bg-[#d2b48c] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#c4a273] transition"
-                  >
-                    View Projects
-                </a>
-              </div>
+            <a
+              href="/projects"
+              className="px-6 py-3 rounded-xl bg-[#cbb89d] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#bda98e] transition"
+            >
+              View Projects
+            </a>
+          </div>
+
 
 
 
