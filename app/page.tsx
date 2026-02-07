@@ -46,19 +46,20 @@ export default function Home() {
             {/* CTA Buttons */}
             <div className="mt-9 flex flex-wrap gap-4">
               <a
-                href="sms:5419818246"
-                className="btn-outline"
+                  href="sms:5419818246"
+                  className="px-6 py-3 rounded-xl bg-[#e6b955] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:brightness-95 transition"
               >
                 Text for a Quote
               </a>
 
               <a
                 href="/projects"
-                className="px-6 py-3 rounded-xl border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#3b2a18] hover:text-white transition"
-              >
+                className="px-6 py-3 rounded-xl bg-[#e6b955] border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:brightness-95 transition"
+               >
                 View Projects
               </a>
             </div>
+
 
             {/* Feature Highlights */}
             <div className="mt-10 grid gap-4 sm:grid-cols-2">
