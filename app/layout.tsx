@@ -43,7 +43,7 @@ export default function RootLayout({
             <a href="/" className="flex items-center gap-4">
               
               {/* Logo */}
-              <div className="relative h-14 w-14 sm:h-16 sm:w-16">
+              <div className="relative h-17 w-17 sm:h-20 sm:w-20">
                 <Image
                   src="/kane-logo.png"
                   alt="Kane Lopinski Handyman Services Logo"
