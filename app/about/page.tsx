@@ -30,9 +30,12 @@ export default function AboutPage() {
 
           <p className="mt-4 text-base sm:text-lg leading-relaxed text-[#4a3420]">
             I am currently remodeling kitchens and bathrooms and renovating a
-            beach house in Gleneden Beach, where I am following plans from
+             beach house in Gleneden Beach, where I am following plans from
             permitted drawings that include framing, carpentry, fixture
-            installation, electrical work, and plumbing updates.
+            installation, electrical work, and plumbing updates. I have also
+            been working as a private contractor building an ADU, completing
+            framing, window and door installation, a full bathroom remodel,
+            finish carpentry, and interior build-out work.
           </p>
         </div>
 
