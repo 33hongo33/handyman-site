@@ -34,7 +34,7 @@ export default function Home() {
               </h1>
             </div>
 
-            {/* Paragraph */}
+            {/* Description */}
             <div className="mt-6 max-w-xl rounded-2xl bg-white/80 backdrop-blur-sm px-6 py-4 border border-[rgba(87,63,37,0.18)] shadow-sm">
               <p className="text-[15px] sm:text-base leading-7 text-[var(--muted)]">
                 Kane Lopinski Handyman Services helps homeowners and Airbnb hosts
@@ -45,10 +45,17 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="mt-9 flex flex-wrap gap-4">
-              <a href="sms:5419818246" className="btn-outline">
+              <a
+                href="sms:5419818246"
+                className="btn-outline"
+              >
                 Text for a Quote
               </a>
-              <a href="/projects" className="btn-secondary">
+
+              <a
+                href="/projects"
+                className="px-6 py-3 rounded-xl border-2 border-[#3b2a18] text-[#3b2a18] font-semibold hover:bg-[#3b2a18] hover:text-white transition"
+              >
                 View Projects
               </a>
             </div>
@@ -197,3 +204,4 @@ export default function Home() {
     </main>
   );
 }
+
