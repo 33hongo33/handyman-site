@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import MobileMenu from "./components/MobileMenu";
@@ -36,23 +37,39 @@ export default function RootLayout({
       >
         {/* ================= HEADER ================= */}
         <header className="sticky top-0 z-50 wood-header border-b border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
-          <div className="mx-auto max-w-6xl px-6 py-6 flex items-center justify-between">
-            {/* Brand */}
-            <div>
-              <a
-                href="/"
-                className={`${rusticFont.className} text-3xl sm:text-4xl font-bold tracking-[0.02em] text-[#3b2a18]`}
-              >
-                Kane Lopinski
-              </a>
-              <div
-                className={`${rusticFont.className} text-lg sm:text-xl font-semibold tracking-wide text-[#6b4b2a]`}
-              >
-                Handyman Services
-              </div>
-            </div>
+          <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
 
-            {/* Desktop Nav */}
+            {/* ================= BRAND (LOGO + TEXT) ================= */}
+            <a href="/" className="flex items-center gap-4">
+              
+              {/* Logo */}
+              <div className="relative h-14 w-14 sm:h-16 sm:w-16">
+                <Image
+                  src="/kane-logo.png"
+                  alt="Kane Lopinski Handyman Services Logo"
+                  fill
+                  priority
+                  className="object-contain"
+                  sizes="64px"
+                />
+              </div>
+
+              {/* Text */}
+              <div>
+                <div
+                  className={`${rusticFont.className} text-2xl sm:text-3xl font-bold tracking-[0.02em] text-[#3b2a18] leading-none`}
+                >
+                  Kane Lopinski
+                </div>
+                <div
+                  className={`${rusticFont.className} text-sm sm:text-lg font-semibold tracking-wide text-[#6b4b2a]`}
+                >
+                  Handyman Services
+                </div>
+              </div>
+            </a>
+
+            {/* ================= DESKTOP NAV ================= */}
             <nav className="hidden md:flex items-center gap-10 text-base font-medium text-[#4a3420]">
               <a
                 href="/"
@@ -92,7 +109,7 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* Mobile Menu (portal overlay) */}
+            {/* ================= MOBILE MENU ================= */}
             <div className="md:hidden">
               <MobileMenu instagramUrl="https://instagram.com/abode_onsalal" />
             </div>
@@ -130,8 +147,7 @@ export default function RootLayout({
             </div>
 
             <div className="mt-4">
-              Serving Eugene & Springfield • Modern Rustic Finish • Reliable
-              Scheduling
+              Serving Eugene & Springfield • Modern Rustic Finish • Reliable Scheduling
             </div>
           </div>
         </footer>
