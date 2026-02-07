@@ -25,7 +25,7 @@ export default function Home() {
               Eugene & Springfield
             </div>
 
-            {/* Headline Paper Strip */}
+            {/* Headline */}
             <div className="mt-6 inline-block rounded-2xl bg-white/85 backdrop-blur-sm px-6 py-4 border border-[rgba(87,63,37,0.22)] shadow-sm">
               <h1
                 className={`${rusticFont.className} text-3xl sm:text-4xl font-semibold tracking-[0.01em] text-[var(--text)] leading-[1.15]`}
@@ -34,7 +34,7 @@ export default function Home() {
               </h1>
             </div>
 
-            {/* Paragraph Paper Strip */}
+            {/* Paragraph */}
             <div className="mt-6 max-w-xl rounded-2xl bg-white/80 backdrop-blur-sm px-6 py-4 border border-[rgba(87,63,37,0.18)] shadow-sm">
               <p className="text-[15px] sm:text-base leading-7 text-[var(--muted)]">
                 Kane Lopinski Handyman Services helps homeowners and Airbnb hosts
@@ -45,9 +45,6 @@ export default function Home() {
 
             {/* CTA Buttons */}
             <div className="mt-9 flex flex-wrap gap-4">
-              <a href="tel:5419818246" className="btn-primary">
-                Call 541-981-8246
-              </a>
               <a href="sms:5419818246" className="btn-outline">
                 Text for a Quote
               </a>
@@ -84,18 +81,13 @@ export default function Home() {
             </div>
           </div>
 
-          {/* RIGHT — Large Photo (top) + Popular Requests (below) */}
+          {/* RIGHT — Image + Popular Requests */}
           <div className="grid gap-10">
-            {/* TOP RIGHT — Image panel */}
+            {/* Image Panel */}
             <div className="wood-panel p-6">
               <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-4 shadow-sm">
-                <div className="flex items-center justify-between gap-4">
-                  <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
-                    On the Job
-                  </div>
-                  <div className="text-xs text-[var(--muted)]">
-                    
-                  </div>
+                <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
+                  On the Job
                 </div>
 
                 <div className="mt-4 overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm">
@@ -124,8 +116,7 @@ export default function Home() {
               </h2>
 
               <p className="mt-3 text-sm sm:text-base leading-7 text-[var(--muted)]">
-                Common projects I handle across Eugene & Springfield — great for
-                homeowners and rentals.
+                Common projects I handle across Eugene & Springfield — great for homeowners and rentals.
               </p>
 
               <ul className="mt-7 space-y-4">
@@ -160,7 +151,6 @@ export default function Home() {
 
         {/* Bottom Navigation Cards */}
         <div className="mt-16 grid gap-6 md:grid-cols-3">
-          {/* What I Do */}
           <a href="/services" className="wood-panel p-7 hover:shadow-md transition">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
               <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
@@ -175,7 +165,6 @@ export default function Home() {
             </div>
           </a>
 
-          {/* Proof */}
           <a href="/projects" className="wood-panel p-7 hover:shadow-md transition">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
               <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
@@ -190,7 +179,6 @@ export default function Home() {
             </div>
           </a>
 
-          {/* Get in Touch */}
           <a href="/contact" className="wood-panel p-7 hover:shadow-md transition">
             <div className="rounded-2xl bg-white/80 backdrop-blur-sm border border-[rgba(87,63,37,0.18)] p-6">
               <div className="text-xs font-semibold tracking-wide uppercase text-[var(--accent-dark)]">
@@ -200,7 +188,7 @@ export default function Home() {
                 Contact
               </h3>
               <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-                Call or text for scheduling and quotes.
+                Text for scheduling and quotes.
               </p>
             </div>
           </a>
