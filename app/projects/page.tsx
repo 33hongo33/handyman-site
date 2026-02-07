@@ -1,3 +1,6 @@
+export const revalidate = 0;
+
+
 import Image from "next/image";
 
 /**
@@ -69,7 +72,7 @@ const PROJECTS: ProjectSection[] = [
   },
 
   {
-    title: "Fencing & Railing Repair",
+    title: "Fencing & Railing",
     location: "Eugene Area",
     description:
       "Fence repair, railing reinforcement, and exterior wood restoration for safety and durability.",
@@ -77,6 +80,10 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/fence-eugene1.png", caption: "Fence Build in Eugene", alt: "Fence reinforcement repair" },
       { src: "/projects/fence-eugene2.png", caption: "Updating Fence", alt: "Deck railing stabilization repair" },
       { src: "/projects/fence-eugene3.png", caption: "Finished fence repair", alt: "Finished fence repair result" },
+
+      { src: "/projects/don-rail1-v2.png", caption: "Rail Upgrade Before Pciture", alt: "Fence reinforcement repair" },
+      { src: "/projects/don-rail2-v2.png", caption: "Rail Upgrade After Picture", alt: "Deck railing stabilization repair" },
+      { src: "/projects/don-rail3-v2.png", caption: "Rail Upgrade", alt: "Finished fence repair result" },
     ],
   },
 
@@ -107,6 +114,19 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/beach-shower3.png", caption: "Finished Shower with Door", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
+
+  {
+    title: "Hot Tub Canopy Build",
+    location: "Springfield",
+    description:
+      "Put together hot tub canopy and connected in to concrete pilings.",
+    photos: [
+      { src: "/projects/hottub1.png", caption: "LVP Flooring Install", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/hottub2.png", caption: "LVP", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/hottub3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
+    ],
+  },
+
 ];
 
 export default function ProjectsPage() {
