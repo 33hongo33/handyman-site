@@ -23,14 +23,14 @@ export default function Home() {
           <div className="wood-panel p-10">
             {/* ✅ LARGE CENTERED LOGO ONLY */}
             <div className="mb-8 flex justify-center">
-              <div className="relative w-[250px] h-[250px] sm:w-[290px] sm:h-[290px] md:w-[340px] md:h-[340px]">
+              <div className="relative w-[288px] h-[288px] sm:w-[334px] sm:h-[334px] md:w-[391px] md:h-[391px]">
                 <Image
                   src="/kane-logo.png"
                   alt="Kane Lopinski Handyman Services logo"
                   fill
                   priority
                   className="object-contain"
-                  sizes="(max-width: 768px) 250px, 340px"
+                  sizes="(max-width: 768px) 288px, 391px"
                 />
               </div>
             </div>
@@ -231,3 +231,4 @@ export default function Home() {
     </main>
   );
 }
+
