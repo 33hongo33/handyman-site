@@ -40,7 +40,7 @@ export default function AboutPage() {
         <div className="relative overflow-hidden rounded-3xl border border-black/10 shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
           <div className="relative h-[420px] w-full">
             <Image
-              src="/about-kane.jpg"
+              src="/about/about-me.png"
               alt="Kane Lopinski renovation work"
               fill
               className="object-cover"
