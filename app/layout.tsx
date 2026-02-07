@@ -40,7 +40,6 @@ export default function RootLayout({
           <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
             {/* ================= BRAND (LOGO + TEXT) ================= */}
             <a href="/" className="flex items-center gap-4">
-              {/* Logo */}
               <div className="relative h-17 w-17 sm:h-20 sm:w-20">
                 <Image
                   src="/kane-logo.png"
@@ -52,7 +51,6 @@ export default function RootLayout({
                 />
               </div>
 
-              {/* Text */}
               <div>
                 <div
                   className={`${rusticFont.className} text-2xl sm:text-3xl font-bold tracking-[0.02em] text-[#3b2a18] leading-none`}
@@ -90,12 +88,11 @@ export default function RootLayout({
                 Projects
               </a>
 
-              {/* ✅ NEW: ABOUT */}
               <a
                 href="/about"
                 className="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#3b2a18] after:transition-all after:duration-300 hover:after:w-full"
               >
-                About
+                About Me
               </a>
 
               <a
@@ -115,17 +112,14 @@ export default function RootLayout({
               </a>
             </nav>
 
-            {/* ================= MOBILE MENU ================= */}
             <div className="md:hidden">
               <MobileMenu instagramUrl="https://instagram.com/abode_onsalal" />
             </div>
           </div>
         </header>
 
-        {/* ================= MAIN ================= */}
         <main className="relative z-0">{children}</main>
 
-        {/* ================= FOOTER ================= */}
         <footer className="mt-20 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-[var(--muted)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -143,9 +137,8 @@ export default function RootLayout({
                   Current Renovation
                 </a>
 
-                {/* ✅ NEW: ABOUT (FOOTER LINK) */}
                 <a href="/about" className="underline underline-offset-4">
-                  About
+                  About Me
                 </a>
 
                 <a href="/contact" className="underline underline-offset-4">
