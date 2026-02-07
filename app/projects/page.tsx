@@ -66,6 +66,19 @@ const PROJECTS: ProjectSection[] = [
     ],
   },
 
+   {
+    title: "Kitchen Remodel",
+    location: "Eugene & Springfield",
+    description:
+      "Replace cabinets, countertops, flooring, electrical outlets and appliances.",
+    photos: [
+      { src: "/projects/airbnb-kitchen5.png", caption: "Kichen Before and After", alt: "Tile layout and spacing" },
+      { src: "/projects/airbnb-kitchen4.png", caption: "Kitchen in Progress", alt: "Tile with clean grout lines" },
+      { src: "/projects/airbnb-kitchen6.png", caption: "Kitchen Remodel Finished", alt: "Tile edges and trim finish" },
+
+    ],
+  },
+
   {
     title: "Fencing & Railing",
     location: "Eugene Area",
