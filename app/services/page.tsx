@@ -56,6 +56,35 @@ export default function Services() {
         "Hardware installs (hooks, racks, curtain rods)",
       ],
     },
+
+    // ✅ Added 3 new services (same style)
+    {
+      title: "Smart Home Installation",
+      items: [
+        "Eufy / Ring camera setup & placement help",
+        "Doorbell camera installs & Wi-Fi pairing",
+        "Basic wiring/adapter setup where applicable",
+        "Troubleshooting connectivity + app issues",
+      ],
+    },
+    {
+      title: "Pressure Washing",
+      items: [
+        "Driveways & sidewalks",
+        "Patios, decks, and walkways",
+        "House siding rinse (light wash as appropriate)",
+        "Moss/algae cleanup on exterior surfaces",
+      ],
+    },
+    {
+      title: "Trash & Furniture Removal",
+      items: [
+        "Haul-away for unwanted furniture & junk",
+        "Rental/turnover cleanout support",
+        "Garage & storage cleanup",
+        "Donation drop-off or dump run (as requested)",
+      ],
+    },
   ];
 
   return (
@@ -151,4 +180,3 @@ export default function Services() {
     </main>
   );
 }
-
