@@ -66,7 +66,7 @@ export default function RootLayout({
             </a>
 
             {/* ================= DESKTOP NAV ================= */}
-            <nav className="hidden md:flex items-center gap-10 text-base font-medium text-[#4a3420]">
+            <nav className="hidden md:flex items-center gap-10 text-lg font-medium text-[#4a3420]">
               <a
                 href="/"
                 className="relative hover:text-black transition after:absolute after:left-0 after:-bottom-1 after:h-[2px] after:w-0 after:bg-[#3b2a18] after:transition-all after:duration-300 hover:after:w-full"
@@ -157,4 +157,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 
