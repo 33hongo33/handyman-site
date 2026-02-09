@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://handymanineugene.com
+
+# Sitemaps
+Sitemap: https://handymanineugene.com/sitemap.xml
