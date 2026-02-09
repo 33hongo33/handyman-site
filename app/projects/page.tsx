@@ -107,9 +107,9 @@ const PROJECTS: ProjectSection[] = [
     location: "Springfield",
     description: "Put together hot tub canopy and connected in to concrete pilings.",
     photos: [
-      { src: "/projects/hottub1.png", caption: "LVP Flooring Install", alt: "Finished luxury vinyl plank flooring" },
-      { src: "/projects/hottub2.png", caption: "LVP", alt: "Luxury vinyl plank detail and trim" },
-      { src: "/projects/hottub3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/hottub1.png", caption: "Hot Tub Canopy Build", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/hottub2.png", caption: "Finished Hot Tub Canopy", alt: "Luxury vinyl plank detail and trim" },
+      { src: "/projects/hottub3.png", caption: "Hot Tub Canopy at BnB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
 
