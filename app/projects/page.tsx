@@ -112,6 +112,17 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/hottub3.png", caption: "Finished LVP Flooring at BNB", alt: "Luxury vinyl plank detail and trim" },
     ],
   },
+
+  {
+    title: "TV Mounting",
+    location: "Springfield",
+    description: "Professional TV Mounting",
+    photos: [
+      { src: "/projects/tv-mount1.png", caption: "TV Mount Installed", alt: "Finished luxury vinyl plank flooring" },
+      { src: "/projects/tv-mount2.png", caption: "Switching an Existing TV Mount Above Fireplace", alt: "Switching an existing TV Mount above Fireplace" },
+      { src: "/projects/tv-mount3.png", caption: "TV Mounted Above Fireplace ", alt: "Luxury vinyl plank detail and trim" },
+    ],
+  },
 ];
 
 export default function ProjectsPage() {
