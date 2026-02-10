@@ -29,15 +29,25 @@ export default function ContactPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
+        cache: "no-store",
       });
 
-      const data = await res.json().catch(() => ({}));
+      // ✅ Robust parsing: works even if response isn't JSON
+      const text = await res.text();
+      let data: any = {};
+      try {
+        data = text ? JSON.parse(text) : {};
+      } catch {
+        data = {};
+      }
 
       if (!res.ok) {
         const msg =
           typeof data?.error === "string"
             ? data.error
-            : "Request failed. Please text or email me.";
+            : text && text.length < 200
+              ? text
+              : `Request failed (${res.status}). Please text or email me.`;
         setErrorMsg(msg);
         setStatus("error");
         return;
@@ -141,7 +151,8 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-[var(--text)]">
-                    Location <span className="text-[var(--muted)]">(optional)</span>
+                    Location{" "}
+                    <span className="text-[var(--muted)]">(optional)</span>
                   </label>
                   <input
                     name="location"

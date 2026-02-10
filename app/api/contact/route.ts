@@ -1,6 +1,4 @@
-
 export const runtime = "nodejs";
-
 
 import { Resend } from "resend";
 
@@ -13,15 +11,27 @@ function escapeHtml(value: string) {
     .replaceAll("'", "&#039;");
 }
 
+// ✅ Debug endpoint: visit http://localhost:3000/api/contact
+// This lets us confirm whether the server can read RESEND_API_KEY
+export async function GET() {
+  const key = process.env.RESEND_API_KEY;
+
+  return Response.json({
+    ok: true,
+    route: "api/contact",
+    hasResendKey: Boolean(key),
+    keyPrefix: key ? key.slice(0, 3) : null, // should be "re_"
+    keyLength: key ? key.length : 0,
+  });
+}
+
 export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
-    console.log("RESEND_API_KEY present?", Boolean(apiKey));
-
 
     if (!apiKey) {
-      return new Response(
-        JSON.stringify({ error: "Missing RESEND_API_KEY  (contact route v2" }),
+      return Response.json(
+        { error: "Missing RESEND_API_KEY (contact route)" },
         { status: 500 }
       );
     }
@@ -37,8 +47,8 @@ export async function POST(req: Request) {
     const details = String(body?.details ?? "").trim();
 
     if (!name || !phone || !details) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
+      return Response.json(
+        { error: "Missing required fields (name, phone, details)" },
         { status: 400 }
       );
     }
@@ -65,18 +75,21 @@ ${escapeHtml(details)}
       html,
     });
 
+    // Resend returns { data, error }
     if ((result as any)?.error) {
-      return new Response(
-        JSON.stringify({ error: "Resend failed" }),
+      return Response.json(
+        {
+          error: "Resend failed",
+          details: (result as any).error,
+        },
         { status: 500 }
       );
     }
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
-
+    return Response.json({ ok: true }, { status: 200 });
   } catch (err: any) {
-    return new Response(
-      JSON.stringify({ error: err?.message || "Failed to send" }),
+    return Response.json(
+      { error: err?.message || "Failed to send" },
       { status: 500 }
     );
   }
