@@ -15,6 +15,8 @@ function escapeHtml(value: string) {
 export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
+    console.log("RESEND KEY PRESENT?", Boolean(apiKey), "LEN", apiKey?.length ?? 0);
+
 
     if (!apiKey) {
       return new Response(
