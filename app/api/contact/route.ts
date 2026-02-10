@@ -1,4 +1,5 @@
 export const runtime = "nodejs";
+export const dynamic = "force-dynamic";
 
 import { Resend } from "resend";
 
@@ -46,13 +47,13 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${escapeHtml(email || "(not provided)")}</p>
         <p><strong>Location:</strong> ${escapeHtml(location || "(not provided)")}</p>
         <p><strong>Details:</strong></p>
-        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px; border:1px solid #e5e5e5;">
+        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px;">
 ${escapeHtml(details)}
         </pre>
       </div>
     `;
 
-    const result = await resend.emails.send({
+    await resend.emails.send({
       from: "Kane Lopinski Handyman <onboarding@resend.dev>",
       to: "kanelopinskihandyman@gmail.com",
       subject: `New quote request: ${name}${location ? ` (${location})` : ""}`,
@@ -60,17 +61,10 @@ ${escapeHtml(details)}
       html,
     });
 
-    if ((result as any)?.error) {
-      return new Response(
-        JSON.stringify({ error: "Email send failed" }),
-        { status: 500 }
-      );
-    }
-
     return new Response(JSON.stringify({ ok: true }), { status: 200 });
   } catch (err: any) {
     return new Response(
-      JSON.stringify({ error: err?.message || "Server error" }),
+      JSON.stringify({ error: err?.message || "Failed to send" }),
       { status: 500 }
     );
   }
