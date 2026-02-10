@@ -1,3 +1,7 @@
+
+export const runtime = "nodejs";
+
+
 import { Resend } from "resend";
 
 function escapeHtml(value: string) {
