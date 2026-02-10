@@ -25,6 +25,7 @@ export default function ContactPage() {
     };
 
     try {
+      // ✅ FIX: point back to the real API route
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -32,7 +33,6 @@ export default function ContactPage() {
         cache: "no-store",
       });
 
-      // ✅ Robust parsing: works even if response isn't JSON
       const text = await res.text();
       let data: any = {};
       try {
@@ -90,7 +90,6 @@ export default function ContactPage() {
               Text for a Quote
             </a>
 
-            {/* ✅ Keep the email link */}
             <a
               href="mailto:kanelopinskihandyman@gmail.com"
               className="btn-secondary"
@@ -151,8 +150,7 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-[var(--text)]">
-                    Location{" "}
-                    <span className="text-[var(--muted)]">(optional)</span>
+                    Location <span className="text-[var(--muted)]">(optional)</span>
                   </label>
                   <input
                     name="location"
@@ -289,3 +287,4 @@ export default function ContactPage() {
     </main>
   );
 }
+
