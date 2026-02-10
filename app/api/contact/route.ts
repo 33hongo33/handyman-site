@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 
     if (!apiKey) {
       return new Response(
-        JSON.stringify({ error: "Missing RESEND_API_KEY" }),
+        JSON.stringify({ error: "Missing RESEND_API_KEY  (contact route v2" }),
         { status: 500 }
       );
     }
