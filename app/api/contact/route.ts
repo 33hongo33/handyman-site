@@ -16,26 +16,6 @@ export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
 
-    // Debug mode: POST /api/contact?debug=1
-    // Returns env visibility so we can confirm Vercel has the key.
-    const url = new URL(req.url);
-    const debug = url.searchParams.get("debug") === "1";
-    if (debug) {
-      return new Response(
-        JSON.stringify({
-          ok: true,
-          debug: true,
-          hasKey: Boolean(apiKey),
-          keyLen: apiKey?.length ?? 0,
-          nodeEnv: process.env.NODE_ENV ?? null,
-          vercelEnv: process.env.VERCEL_ENV ?? null,
-        }),
-        { status: 200, headers: { "content-type": "application/json" } }
-      );
-    }
-
-    console.log("RESEND KEY PRESENT?", Boolean(apiKey), "LEN", apiKey?.length ?? 0);
-
     if (!apiKey) {
       return new Response(JSON.stringify({ error: "Missing RESEND_API_KEY" }), {
         status: 500,
@@ -44,7 +24,6 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(apiKey);
-
     const body = await req.json();
 
     const name = String(body?.name ?? "").trim();
@@ -68,9 +47,9 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${escapeHtml(email || "(not provided)")}</p>
         <p><strong>Location:</strong> ${escapeHtml(location || "(not provided)")}</p>
         <p><strong>Details:</strong></p>
-        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px;">${escapeHtml(
-          details
-        )}</pre>
+        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px;">
+${escapeHtml(details)}
+        </pre>
       </div>
     `;
 
@@ -85,10 +64,7 @@ export async function POST(req: Request) {
     if (error) {
       console.error("RESEND ERROR:", error);
       return new Response(
-        JSON.stringify({
-          error: error.message ?? "Resend send failed",
-          details: error,
-        }),
+        JSON.stringify({ error: error.message ?? "Resend send failed" }),
         { status: 502, headers: { "content-type": "application/json" } }
       );
     }
