@@ -15,15 +15,36 @@ function escapeHtml(value: string) {
 export async function POST(req: Request) {
   try {
     const apiKey = process.env.RESEND_API_KEY;
+
+    // Debug mode: POST /api/contact?debug=1
+    // Returns env visibility so we can confirm Vercel has the key.
+    const url = new URL(req.url);
+    const debug = url.searchParams.get("debug") === "1";
+    if (debug) {
+      return new Response(
+        JSON.stringify({
+          ok: true,
+          debug: true,
+          hasKey: Boolean(apiKey),
+          keyLen: apiKey?.length ?? 0,
+          nodeEnv: process.env.NODE_ENV ?? null,
+          vercelEnv: process.env.VERCEL_ENV ?? null,
+        }),
+        { status: 200, headers: { "content-type": "application/json" } }
+      );
+    }
+
     console.log("RESEND KEY PRESENT?", Boolean(apiKey), "LEN", apiKey?.length ?? 0);
 
     if (!apiKey) {
       return new Response(JSON.stringify({ error: "Missing RESEND_API_KEY" }), {
         status: 500,
+        headers: { "content-type": "application/json" },
       });
     }
 
     const resend = new Resend(apiKey);
+
     const body = await req.json();
 
     const name = String(body?.name ?? "").trim();
@@ -35,6 +56,7 @@ export async function POST(req: Request) {
     if (!name || !phone || !details) {
       return new Response(JSON.stringify({ error: "Missing required fields" }), {
         status: 400,
+        headers: { "content-type": "application/json" },
       });
     }
 
@@ -56,27 +78,30 @@ export async function POST(req: Request) {
       from: "Kane Lopinski Handyman <onboarding@resend.dev>",
       to: ["kanelopinskihandyman@gmail.com"],
       subject: `New quote request: ${name}${location ? ` (${location})` : ""}`,
-
-      // Resend API uses reply_to (underscore) :contentReference[oaicite:2]{index=2}
       ...(email ? { reply_to: email } : {}),
-
       html,
     });
 
     if (error) {
       console.error("RESEND ERROR:", error);
       return new Response(
-        JSON.stringify({ error: error.message ?? "Resend send failed", details: error }),
-        { status: 502 }
+        JSON.stringify({
+          error: error.message ?? "Resend send failed",
+          details: error,
+        }),
+        { status: 502, headers: { "content-type": "application/json" } }
       );
     }
 
-    return new Response(JSON.stringify({ ok: true, id: data?.id }), { status: 200 });
+    return new Response(JSON.stringify({ ok: true, id: data?.id ?? null }), {
+      status: 200,
+      headers: { "content-type": "application/json" },
+    });
   } catch (err: any) {
     console.error("API ROUTE ERROR:", err);
     return new Response(
       JSON.stringify({ error: err?.message || "Failed to send" }),
-      { status: 500 }
+      { status: 500, headers: { "content-type": "application/json" } }
     );
   }
 }
