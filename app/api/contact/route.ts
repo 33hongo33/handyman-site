@@ -17,12 +17,10 @@ export async function POST(req: Request) {
     const apiKey = process.env.RESEND_API_KEY;
     console.log("RESEND KEY PRESENT?", Boolean(apiKey), "LEN", apiKey?.length ?? 0);
 
-
     if (!apiKey) {
-      return new Response(
-        JSON.stringify({ error: "Missing RESEND_API_KEY" }),
-        { status: 500 }
-      );
+      return new Response(JSON.stringify({ error: "Missing RESEND_API_KEY" }), {
+        status: 500,
+      });
     }
 
     const resend = new Resend(apiKey);
@@ -35,10 +33,9 @@ export async function POST(req: Request) {
     const details = String(body?.details ?? "").trim();
 
     if (!name || !phone || !details) {
-      return new Response(
-        JSON.stringify({ error: "Missing required fields" }),
-        { status: 400 }
-      );
+      return new Response(JSON.stringify({ error: "Missing required fields" }), {
+        status: 400,
+      });
     }
 
     const html = `
@@ -49,22 +46,34 @@ export async function POST(req: Request) {
         <p><strong>Email:</strong> ${escapeHtml(email || "(not provided)")}</p>
         <p><strong>Location:</strong> ${escapeHtml(location || "(not provided)")}</p>
         <p><strong>Details:</strong></p>
-        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px;">
-${escapeHtml(details)}
-        </pre>
+        <pre style="white-space: pre-wrap; background:#f7f7f7; padding:12px; border-radius:8px;">${escapeHtml(
+          details
+        )}</pre>
       </div>
     `;
 
-    await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Kane Lopinski Handyman <onboarding@resend.dev>",
-      to: "kanelopinskihandyman@gmail.com",
+      to: ["kanelopinskihandyman@gmail.com"],
       subject: `New quote request: ${name}${location ? ` (${location})` : ""}`,
-      replyTo: email || undefined,
+
+      // Resend API uses reply_to (underscore) :contentReference[oaicite:2]{index=2}
+      ...(email ? { reply_to: email } : {}),
+
       html,
     });
 
-    return new Response(JSON.stringify({ ok: true }), { status: 200 });
+    if (error) {
+      console.error("RESEND ERROR:", error);
+      return new Response(
+        JSON.stringify({ error: error.message ?? "Resend send failed", details: error }),
+        { status: 502 }
+      );
+    }
+
+    return new Response(JSON.stringify({ ok: true, id: data?.id }), { status: 200 });
   } catch (err: any) {
+    console.error("API ROUTE ERROR:", err);
     return new Response(
       JSON.stringify({ error: err?.message || "Failed to send" }),
       { status: 500 }
