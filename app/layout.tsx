@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import Script from "next/script";
 import { Geist, Geist_Mono, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import MobileMenu from "./components/MobileMenu";
@@ -35,6 +36,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-[var(--bg)] text-[var(--text)]`}
       >
+        {/* ================= GOOGLE ADS (gtag base tag) ================= */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17938815894"
+          strategy="afterInteractive"
+        />
+        <Script id="gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            window.gtag = window.gtag || gtag;
+            gtag('js', new Date());
+            gtag('config', 'AW-17938815894');
+          `}
+        </Script>
+
         {/* ================= HEADER ================= */}
         <header className="sticky top-0 z-50 wood-header border-b-4 border-black shadow-[0_10px_25px_rgba(0,0,0,0.08)]">
           <div className="mx-auto max-w-6xl px-6 py-4 flex items-center justify-between">
@@ -117,7 +133,7 @@ export default function RootLayout({
                   fill="currentColor"
                   className="h-5 w-5"
                 >
-                  <path d="M7.75 2h8.5C19.216 2 22 4.784 22 8.25v7.5C22 19.216 19.216 22 16.25 22h-8.5C4.784 22 2 19.216 2 15.75v-7.5C2 4.784 4.784 2 7.75 2zm8.5 1.5h-8.5C5.56 3.5 3.5 5.56 3.5 7.75v8.5C3.5 18.44 5.56 20.5 7.75 20.5h8.5c2.19 0 4.25-2.06 4.25-4.25v-8.5c0-2.19-2.06-4.25-4.25-4.25zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5A3.5 3.5 0 1015.5 12 3.504 3.504 0 0012 8.5zm5.25-2a.75.75 0 110 1.5.75.75 0 010-1.5z"/>
+                  <path d="M7.75 2h8.5C19.216 2 22 4.784 22 8.25v7.5C22 19.216 19.216 22 16.25 22h-8.5C4.784 22 2 19.216 2 15.75v-7.5C2 4.784 4.784 2 7.75 2zm8.5 1.5h-8.5C5.56 3.5 3.5 5.56 3.5 7.75v8.5C3.5 18.44 5.56 20.5 7.75 20.5h8.5c2.19 0 4.25-2.06 4.25-4.25v-8.5c0-2.19-2.06-4.25-4.25-4.25zM12 7a5 5 0 110 10 5 5 0 010-10zm0 1.5A3.5 3.5 0 1015.5 12 3.504 3.504 0 0012 8.5zm5.25-2a.75.75 0 110 1.5.75.75 0 010-1.5z" />
                 </svg>
               </a>
             </nav>
@@ -133,9 +149,7 @@ export default function RootLayout({
         <footer className="mt-20 border-t border-[var(--border)]">
           <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-[var(--muted)]">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-              <div>
-                © {new Date().getFullYear()} Kane Lopinski Handyman Services
-              </div>
+              <div>© {new Date().getFullYear()} Kane Lopinski Handyman Services</div>
 
               <div className="flex gap-4">
                 <a
@@ -167,4 +181,3 @@ export default function RootLayout({
     </html>
   );
 }
-
