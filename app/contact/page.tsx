@@ -8,6 +8,24 @@ export default function ContactPage() {
   );
   const [errorMsg, setErrorMsg] = useState<string>("");
 
+  // ================= GOOGLE ADS CONVERSION (Contact Form Submit) =================
+  function gtag_report_conversion(url?: string) {
+    const callback = function () {
+      if (typeof url !== "undefined") {
+        window.location.href = url;
+      }
+    };
+
+    // Ensure gtag exists (it comes from your layout.tsx Script tags)
+    const gtag = (window as any).gtag as undefined | ((...args: any[]) => void);
+    if (!gtag) return;
+
+    gtag("event", "conversion", {
+      send_to: "AW-17938815894/_nZnCNnBg4IcEJa38ulC",
+      event_callback: callback,
+    });
+  }
+
   async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     setStatus("sending");
@@ -52,6 +70,9 @@ export default function ContactPage() {
         setStatus("error");
         return;
       }
+
+      // ✅ SUCCESS: Fire Google Ads conversion event
+      gtag_report_conversion();
 
       setStatus("success");
       form.reset();
@@ -150,7 +171,8 @@ export default function ContactPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-[var(--text)]">
-                    Location <span className="text-[var(--muted)]">(optional)</span>
+                    Location{" "}
+                    <span className="text-[var(--muted)]">(optional)</span>
                   </label>
                   <input
                     name="location"
@@ -190,7 +212,8 @@ export default function ContactPage() {
 
                   {status === "error" && (
                     <span className="text-sm font-medium text-red-700">
-                      {errorMsg || "Something went wrong. Please text or email me."}
+                      {errorMsg ||
+                        "Something went wrong. Please text or email me."}
                     </span>
                   )}
                 </div>
@@ -287,4 +310,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
