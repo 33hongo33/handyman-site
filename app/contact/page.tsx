@@ -213,7 +213,7 @@ export default function ContactPage() {
                 <div className="flex items-start justify-between gap-6">
                   <span className="font-medium text-[var(--text)]">Phone</span>
                   <a className="underline underline-offset-4" href="tel:5419818246">
-                    541-981-8246
+                    541-255-0145
                   </a>
                 </div>
 
