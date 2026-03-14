@@ -105,7 +105,7 @@ export default function ContactPage() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a href="tel:5419818246" className="btn-primary">
-              Call 541-981-8246
+              Call 541-255-0145
             </a>
             <a href="sms:5419818246" className="btn-outline">
               Text for a Quote
