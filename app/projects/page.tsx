@@ -76,6 +76,10 @@ const PROJECTS: ProjectSection[] = [
       { src: "/projects/don-rail1-v2.png", caption: "Rail Upgrade Before Pciture", alt: "Fence reinforcement repair" },
       { src: "/projects/don-rail2-v2.png", caption: "Rail Upgrade After Picture", alt: "Deck railing stabilization repair" },
       { src: "/projects/don-rail3-v2.png", caption: "Rail Upgrade", alt: "Finished fence repair result" },
+
+      { src: "/projects/privacy_screen_1.png", caption: "Before Picture", alt: "Fence reinforcement repair" },
+      { src: "/projects/privacy_screen_2.png", caption: "Modern Style Cedar Privacy Screen", alt: "Deck railing stabilization repair" },
+      { src: "/projects/privacy_screen_3.png", caption: "Cedar Screen", alt: "Finished fence repair result" },
     ],
   },
   {
